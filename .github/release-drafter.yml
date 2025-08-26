@@ -1,6 +1,9 @@
 name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
-filter-by-commitish: true
+filter-by-commitish: false
+include-labels: false
+exclude-labels: []
+include-contributors: true
 
 categories:
   - title: '🚀 Features'
@@ -17,6 +20,9 @@ categories:
     labels:
       - 'chore'
       - 'bld'
+  - title: '📝 Other Changes'
+    labels:
+      - '*'
 
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&'

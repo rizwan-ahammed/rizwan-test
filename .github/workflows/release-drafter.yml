@@ -13,8 +13,17 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter@v6
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          config-name: release-drafter.yml   # points to config file in .github
+          fetch-depth: 0
+      
+      - name: Release Drafter
+        uses: release-drafter/release-drafter@v6
+        with:
+          config-name: release-drafter.yml
+          name: ${{ github.ref_name }}
+          tag: ${{ github.ref_name }}
+          draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

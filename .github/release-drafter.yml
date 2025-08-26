@@ -1,42 +1,27 @@
 name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
-filter-by-commitish: false
-include-labels: []
-exclude-labels: []
-include-contributors: true
-
+# This makes sure it looks at commits on main
+filter-by-commitish: true
 categories:
   - title: '🚀 Features'
-    labels:
-      - 'feature'
-      - 'feat'
-      - 'enhancement'
+    labels: ['feature', 'feat', 'enhancement']
   - title: '🐛 Bug Fixes'
-    labels:
-      - 'fix'
-      - 'bugfix'
-      - 'bug'
+    labels: ['fix', 'bugfix', 'bug']
   - title: '🧰 Maintenance'
-    labels:
-      - 'chore'
-      - 'bld'
-  - title: '📝 Other Changes'
-    labels:
-      - '*'
+    labels: ['chore', 'bld']
 
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+# Instead of only PRs, include commits
+# $COMMIT_MESSAGE is the raw commit message
+change-template: '- $COMMIT_MESSAGE @$AUTHOR'
 change-title-escapes: '\<*_&'
 
 version-resolver:
   major:
-    labels:
-      - 'major'
+    labels: ['major']
   minor:
-    labels:
-      - 'minor'
+    labels: ['minor']
   patch:
-    labels:
-      - 'patch'
+    labels: ['patch']
   default: minor
 
 template: |

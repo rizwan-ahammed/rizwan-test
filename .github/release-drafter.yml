@@ -12,7 +12,7 @@ categories:
 
 # Instead of only PRs, include commits
 # $COMMIT_MESSAGE is the raw commit message
-change-template: '- $COMMIT_MESSAGE @$AUTHOR'
+change-template: '- $COMMIT_SUBJECT @$AUTHOR'
 change-title-escapes: '\<*_&'
 
 version-resolver:

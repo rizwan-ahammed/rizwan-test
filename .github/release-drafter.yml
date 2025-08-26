@@ -2,7 +2,6 @@ name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
 # This makes sure it looks at commits on main
 filter-by-commitish: true
-
 categories:
   - title: '🚀 Features'
     labels: ['feature', 'feat', 'enhancement']

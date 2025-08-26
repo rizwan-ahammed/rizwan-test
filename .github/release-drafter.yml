@@ -1,33 +1,33 @@
-name-template: 'v$RESOLVED_VERSION 🌈'
-tag-template: 'v$RESOLVED_VERSION'
-# This makes sure it looks at commits on main
-filter-by-commitish: true
-categories:
-  - title: '🚀 Features'
-    labels: ['feature', 'feat', 'enhancement']
-  - title: '🐛 Bug Fixes'
-    labels: ['fix', 'bugfix', 'bug']
-  - title: '🧰 Maintenance'
-    labels: ['chore', 'bld']
+# name-template: 'v$RESOLVED_VERSION 🌈'
+# tag-template: 'v$RESOLVED_VERSION'
+# # This makes sure it looks at commits on main
+# filter-by-commitish: true
+# categories:
+#   - title: '🚀 Features'
+#     labels: ['feature', 'feat', 'enhancement']
+#   - title: '🐛 Bug Fixes'
+#     labels: ['fix', 'bugfix', 'bug']
+#   - title: '🧰 Maintenance'
+#     labels: ['chore', 'bld']
 
-# Instead of only PRs, include commits
-# $COMMIT_MESSAGE is the raw commit message
-change-template: '- $COMMIT_SUBJECT @$AUTHOR'
-change-title-escapes: '\<*_&'
+# # Instead of only PRs, include commits
+# # $COMMIT_MESSAGE is the raw commit message
+# change-template: '- $COMMIT_SUBJECT @$AUTHOR'
+# change-title-escapes: '\<*_&'
 
-version-resolver:
-  major:
-    labels: ['major']
-  minor:
-    labels: ['minor']
-  patch:
-    labels: ['patch']
-  default: minor
+# version-resolver:
+#   major:
+#     labels: ['major']
+#   minor:
+#     labels: ['minor']
+#   patch:
+#     labels: ['patch']
+#   default: minor
 
-template: |
-  ## Changes
+# template: |
+#   ## Changes
 
-  $CHANGES
+#   $CHANGES
   
-  ## Release asset
-  docker pull ghcr.io/am-i-b-v/crm-service:$RESOLVED_VERSION
+#   ## Release asset
+#   docker pull ghcr.io/am-i-b-v/crm-service:$RESOLVED_VERSION

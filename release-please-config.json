@@ -1,0 +1,39 @@
+{
+    "release-type": "simple",
+    "packages": {
+      ".": {
+        "package-name": "crm-service",
+        "versioning": "semver",
+        "bump-minor-pre-major": true,
+        "bump-patch-for-minor-pre-major": true,
+        "labels": {
+          "major": "major",
+          "minor": "minor",
+          "patch": "patch"
+        },
+        "changelog-sections": [
+          {
+            "type": "feat",
+            "section": "🚀 Features",
+            "hidden": false
+          },
+          {
+            "type": "fix",
+            "section": "🐛 Bug Fixes",
+            "hidden": false
+          },
+          {
+            "type": "chore",
+            "section": "🧰 Maintenance",
+            "hidden": false
+          },
+          {
+            "type": "refactor",
+            "section": "🧰 Maintenance",
+            "hidden": false
+          }
+        ]
+      }
+    }
+  }
+  

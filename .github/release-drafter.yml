@@ -1,33 +1,22 @@
-# name-template: 'v$RESOLVED_VERSION 🌈'
-# tag-template: 'v$RESOLVED_VERSION'
-# # This makes sure it looks at commits on main
-# filter-by-commitish: true
-# categories:
-#   - title: '🚀 Features'
-#     labels: ['feature', 'feat', 'enhancement']
-#   - title: '🐛 Bug Fixes'
-#     labels: ['fix', 'bugfix', 'bug']
-#   - title: '🧰 Maintenance'
-#     labels: ['chore', 'bld']
+name-template: 'v$NEXT_PATCH_VERSION 🚀'
+tag-template: 'v$NEXT_PATCH_VERSION'
+prerelease: false
 
-# # Instead of only PRs, include commits
-# # $COMMIT_MESSAGE is the raw commit message
-# change-template: '- $COMMIT_SUBJECT @$AUTHOR'
-# change-title-escapes: '\<*_&'
+# PR-based entries
+change-template: "- $TITLE by @$AUTHOR in #$NUMBER"
 
-# version-resolver:
-#   major:
-#     labels: ['major']
-#   minor:
-#     labels: ['minor']
-#   patch:
-#     labels: ['patch']
-#   default: minor
+# Direct commits without PRs
+no-pr-template: "- $COMMIT_MESSAGE by @$COMMIT_AUTHOR"
 
-# template: |
-#   ## Changes
+categories:
+  - title: "✨ Features"
+    labels: ["feature", "enhancement"]
+  - title: "🐛 Fixes"
+    labels: ["bug", "fix"]
+  - title: "🛠 Maintenance"
+    labels: ["chore", "docs", "refactor"]
 
-#   $CHANGES
-  
-#   ## Release asset
-#   docker pull ghcr.io/am-i-b-v/crm-service:$RESOLVED_VERSION
+# Fallback
+template: |
+  ## Changes
+  $CHANGES

@@ -1,20 +1,22 @@
-# name: Release Drafter
+name: Release Drafter
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main   # 👈 change if your release branch is different
+  workflow_dispatch: # allows manual trigger too
 
-# permissions:
-#   contents: write
-#   pull-requests: read
+permissions:
+  contents: write       # needed to update GitHub releases
+  pull-requests: read   # needed to read PR titles, authors, etc.
 
-# jobs:
-#   update_release_draft:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: release-drafter/release-drafter@v6
-#         with:
-#           config-name: release-drafter.yml
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Release Drafter
+        uses: release-drafter/release-drafter@v6
+        with:
+          config-name: release-drafter.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
